@@ -231,6 +231,10 @@ Estas funcionalidades se agregarán en módulos posteriores.
 - Commits coherentes y descriptivos
 - Sin secretos o credenciales en el repositorio
 
+## Estado del Proyecto
+
+✅ Completado - Módulo 0 - Primer incremento funcional
+
 ## Autor
 
 Desarrollado como proyecto del curso de Ingeniería de Sistemas de IA - Módulo 0.
