@@ -1,10 +1,15 @@
-# AI Knowledge Assistant - Bootstrap API
+# AI Knowledge Assistant
 
-Primer incremento funcional del proyecto AI Knowledge Assistant para el Módulo 0 del curso de Ingeniería de Sistemas de IA.
+Proyecto del curso de Ingeniería de Sistemas de IA que implementa un asistente de conocimiento con integración de LLMs.
+
+## Módulos
+
+- **Módulo 0:** Bootstrap API - Base técnica sin integración de LLM
+- **Módulo I:** Experimentación con LLM y flujo funcional de solicitudes
 
 ## Objetivo
 
-Construir, probar y versionar la base técnica de una API asíncrona preparada para evolucionar en un sistema de IA real. Este proyecto NO integra ningún proveedor de LLM (OpenAI, Anthropic, etc.) en este módulo.
+Construir, probar y versionar una API asíncrona que integra proveedores de LLM (OpenRouter) para responder preguntas de usuarios. El proyecto sigue una arquitectura en capas con separación de responsabilidades.
 
 ## Tecnologías
 
@@ -14,6 +19,8 @@ Construir, probar y versionar la base técnica de una API asíncrona preparada p
 - AsyncIO (Programación asíncrona)
 - HTTPX (Cliente HTTP asíncrono)
 - pytest (Framework de pruebas)
+- OpenRouter (Proveedor de LLM)
+- python-dotenv (Gestión de variables de entorno)
 - Git/GitHub (Control de versiones)
 
 ## Requisitos Previos
@@ -21,6 +28,7 @@ Construir, probar y versionar la base técnica de una API asíncrona preparada p
 - Python 3.12 o superior instalado
 - Git instalado
 - Cuenta en GitHub
+- API Key de OpenRouter (obtener en https://openrouter.ai/keys)
 
 ## Instalación
 
@@ -60,6 +68,17 @@ source .venv/bin/activate
 pip install -e .
 ```
 
+### 5. Configurar variables de entorno
+
+```bash
+cp .env.example .env
+```
+
+Edita el archivo `.env` y agrega tu API key de OpenRouter:
+```
+OPENROUTER_API_KEY=your_actual_api_key_here
+```
+
 ## Ejecución de la API
 
 ### Iniciar el servidor
@@ -90,12 +109,16 @@ Verifica que la API esté funcionando correctamente.
 ```
 
 ### POST /api/v1/chat
-Procesa una pregunta del usuario y retorna una respuesta de bootstrap.
+Procesa una pregunta del usuario usando un LLM (OpenRouter).
 
 **Request:**
 ```json
 {
-  "question": "¿Qué es FastAPI?"
+  "question": "¿Qué es FastAPI?",
+  "model": "openai/gpt-3.5-turbo",
+  "temperature": 0.7,
+  "top_p": 1.0,
+  "max_tokens": 300
 }
 ```
 
@@ -103,13 +126,17 @@ Procesa una pregunta del usuario y retorna una respuesta de bootstrap.
 ```json
 {
   "answer": "...",
-  "provider": "bootstrap-local"
+  "provider": "openai"
 }
 ```
 
 **Validaciones:**
 - La pregunta debe tener entre 3 y 2000 caracteres
-- Preguntas vacías o solo espacios retornan HTTP 422
+- temperature debe estar entre 0.0 y 2.0
+- top_p debe estar entre 0.0 y 1.0
+- max_tokens debe estar entre 1 y 4096
+- Preguntas inválidas retornan HTTP 422
+- Errores del proveedor retornan HTTP 502
 
 ### GET /api/v1/info
 Retorna información básica del proyecto.
