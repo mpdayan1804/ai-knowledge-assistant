@@ -50,3 +50,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Experiment logs (keep directory but ignore JSON results)
+experiments/logs/*.json
