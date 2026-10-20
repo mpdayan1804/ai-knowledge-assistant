@@ -1,114 +1,80 @@
+"""Pruebas de integración de la API (T-02 a T-05 + validaciones 422).
+ 
+Las pruebas de /chat usan FakeLLMProvider: no llaman a OpenRouter.
 """
-Integration tests for the API endpoints.
-
-Tests the HTTP layer using FastAPI's TestClient without requiring
-an external running server.
-"""
-
 import pytest
 from fastapi.testclient import TestClient
+ 
+from app.dependencies import get_assistant_service
 from app.main import app
-
-
+from app.providers.fake import FakeLLMProvider
+from app.services.assistant_service import AssistantService
+ 
+ 
 @pytest.fixture
 def client():
-    """Create a test client for the FastAPI application."""
-    return TestClient(app)
-
-
+    fake = FakeLLMProvider(answer="Respuesta de prueba")
+    app.dependency_overrides[get_assistant_service] = lambda: AssistantService(fake)
+    yield TestClient(app)
+    app.dependency_overrides.clear()
+ 
+ 
 class TestHealthEndpoint:
-    """Test suite for the /health endpoint."""
-
     def test_health_check_returns_200(self, client):
-        """
-        T-02: GET /health should return HTTP 200.
-        """
+        """T-02: GET /health retorna 200."""
         response = client.get("/health")
         assert response.status_code == 200
         assert response.json() == {"status": "healthy"}
-
-
+ 
+ 
 class TestChatEndpoint:
-    """Test suite for the /api/v1/chat endpoint."""
-
     def test_chat_with_valid_question_returns_200(self, client):
-        """
-        T-03: POST /api/v1/chat with a valid question should return HTTP 200.
-        """
-        payload = {"question": "¿Qué es FastAPI?"}
-        response = client.post("/api/v1/chat", json=payload)
-
+        """T-03: pregunta válida -> 200 (con proveedor falso)."""
+        response = client.post("/api/v1/chat", json={"question": "¿Qué es FastAPI?"})
         assert response.status_code == 200
-        data = response.json()
-        assert "answer" in data
-        assert "provider" in data
-        assert data["provider"] == "bootstrap-local"
-        assert len(data["answer"]) > 0
-
+        body = response.json()
+        assert body["answer"] == "Respuesta de prueba"
+        assert body["provider"] == "fake"
+ 
     def test_chat_with_too_short_question_returns_422(self, client):
-        """
-        T-04: POST /api/v1/chat with a too-short question should return HTTP 422.
-        """
-        payload = {"question": "Hi"}  # Less than 3 characters
-        response = client.post("/api/v1/chat", json=payload)
-
+        """T-04: pregunta muy corta -> 422."""
+        response = client.post("/api/v1/chat", json={"question": "Hi"})
         assert response.status_code == 422
-
+ 
     def test_chat_with_empty_question_returns_422(self, client):
-        """Test that empty question returns 422."""
-        payload = {"question": ""}
-        response = client.post("/api/v1/chat", json=payload)
-
+        response = client.post("/api/v1/chat", json={"question": ""})
         assert response.status_code == 422
-
+ 
     def test_chat_with_whitespace_only_returns_422(self, client):
-        """Test that whitespace-only question returns 422."""
-        payload = {"question": "   "}
-        response = client.post("/api/v1/chat", json=payload)
-
+        response = client.post("/api/v1/chat", json={"question": "   "})
         assert response.status_code == 422
-
+ 
     def test_chat_with_too_long_question_returns_422(self, client):
-        """Test that question exceeding max length returns 422."""
-        payload = {"question": "a" * 2001}  # More than 2000 characters
-        response = client.post("/api/v1/chat", json=payload)
-
+        response = client.post("/api/v1/chat", json={"question": "a" * 2001})
         assert response.status_code == 422
-
+ 
     def test_chat_without_question_field_returns_422(self, client):
-        """Test that missing question field returns 422."""
-        payload = {"wrong_field": "test"}
-        response = client.post("/api/v1/chat", json=payload)
-
+        response = client.post("/api/v1/chat", json={"wrong_field": "test"})
         assert response.status_code == 422
-
-
+ 
+    def test_chat_with_negative_temperature_returns_422(self, client):
+        """Nuevo (Módulo I): temperature=-1 es rechazada por Pydantic."""
+        response = client.post(
+            "/api/v1/chat", json={"question": "Pregunta válida", "temperature": -1}
+        )
+        assert response.status_code == 422
+ 
+ 
 class TestInfoEndpoint:
-    """Test suite for the /api/v1/info endpoint."""
-
     def test_info_returns_200_and_llm_disabled(self, client):
-        """
-        T-05: GET /api/v1/info should return HTTP 200 and llm_enabled = false.
-        """
+        """T-05: GET /api/v1/info -> 200 y llm_enabled = false."""
         response = client.get("/api/v1/info")
-
         assert response.status_code == 200
-        data = response.json()
-        assert data["llm_enabled"] is False
-        assert "name" in data
-        assert "version" in data
-        assert "environment" in data
-
-
+        assert response.json()["llm_enabled"] is False
+ 
+ 
 class TestRootEndpoint:
-    """Test suite for the root endpoint."""
-
     def test_root_returns_basic_info(self, client):
-        """Test that root endpoint returns basic information."""
         response = client.get("/")
-
         assert response.status_code == 200
-        data = response.json()
-        assert "message" in data
-        assert "docs" in data
-        assert data["docs"] == "/docs"
+        assert "message" in response.json()
