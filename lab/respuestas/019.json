@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.28,
+  "response": {
+    "answer": "## ¿Qué es la inteligencia artificial?\n\nLa **IA** es un conjunto de técnicas que permiten a una computadora encontrar patrones en datos y usar esos patrones para hacer tareas que normalmente requieren lógica, clasificación o interpretación.\n\n### Analogía: el chef y el aprendiz\n\n- Un **programa tradicional** es como un chef que sigue una receta exacta:\n  > “Si la temperatura es mayor de 80 °C, entonces marca la bebida como caliente.”\n\n- Un **sistema de IA** es más parecido a un aprendiz que observa muchos ejemplos:\n  - Ve miles de<G>实际的</G>能把**传感器读数**与“正常”或“异常”对应起来；\n  - Observa patrones y aprende qué condiciones suelen ser las normales;\n  - Después puede",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

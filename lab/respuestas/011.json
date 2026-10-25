@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 0.5,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.44,
+  "response": {
+    "answer": "## ¿Qué es la IA?\n\nLa **Inteligencia Artificial (IA)** es un conjunto de técnicas que permiten que una computadora aprenda patrones a partir de datos y use esos patrones para realizar tareas, como clasificar información, traducir textos, recomendar productos o generar código.\n\n### Analogía: un programador junior\n\nImagina que contratas a un programador junior:\n\n1. Le das **muchos ejemplos** de código y sus resultados correctos.\n2. Él analiza esos ejemplos y detecta patrones:\n   - cómo se检测an errores;\n   - qué estructura tienen ciertos programas;\n   - qué palabras suelen aparecer en una frase sobredogs.\n3. Cuando recibe una tarea nueva, intenta producir una respuesta basándose en lo aprendido.\n4. Si sus resultados son incorrectos, recibe retroalimentación y ajusta su comportamiento.\n\nUna IA funciona de forma parecida: **aprende de ejemplos",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

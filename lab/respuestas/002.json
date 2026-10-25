@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica qué es una API REST con un ejemplo educativo.",
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 7.29,
+  "response": {
+    "answer": "## ¿Qué es una API REST?\n\nUna **API REST** es una interfaz que permite que dos sistemasBCL —como una aplicación móvil y un servidor web— se comuniquen siguiendo el estilo arquitectónico **REST** (*Representational State Transfer*).\n\nEn otras palabras, la aplicación **solicita datos o acciones** mediante una dirección URL, y el servidor responde con información, normalmente en formato **JSON**.\n\n### Ejemplo: API de una biblioteca\n\nImagina que tenemos una aplicación para consultar libros y un servidor que guarda sus datos.\n\nEl servidor podría exponer estos recursos:\n\n| Método | URL | Acción |\n|---|---|---|\n| `GET` | `/api/libros` | Obtener todos los libros |\n| `GET` | `/api/libros/1` | Obtener el libro con ID `1` |\n| `",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

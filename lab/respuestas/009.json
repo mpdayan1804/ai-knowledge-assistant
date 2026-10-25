@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 0.1,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.45,
+  "response": {
+    "answer": "### Analogía: la IA como un becario que aprende de ejemplos\n\nImagina que quieres crear un programa que detecte correos spam.\n\n- **Programación tradicional:** escribes reglas exactas, por ejemplo:  \n  “Si el correo contiene la palabra *gratis*, es spam.”\n- **IA o aprendizaje automático:** le muestras miles de correos ya etiquetados como *spam* o *no spam*. El programa analiza esos ejemplos y discovers patrones para decidir cuáles son nuevos.\n\nEn esta analogía:\n\n| Concepto de IA | Analogía |\n|---|---|\n| Datos | Los ejemplos que estudia el becario |\n|",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}
