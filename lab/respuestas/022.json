@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica los componentes de una API REST, con ejemplo de request y response, diferencias entre GET y POST y buenas prácticas.",
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 150,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.72,
+  "response": {
+    "answer": "",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

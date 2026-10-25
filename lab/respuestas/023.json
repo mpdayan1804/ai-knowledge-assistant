@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica los componentes de una API REST, con ejemplo de request y response, diferencias entre GET y POST y buenas prácticas.",
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 500,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 13.24,
+  "response": {
+    "answer": "## ¿Qué es una API REST?\n\nUna **API REST** es una interfaz que permite que una aplicación se comunique con un servidor utilizando el modelo HTTP. REST significa **REpresentational State Transfer** y se basa en exchanger representaciones de recursos, normalmente en formato **JSON**.\n\nUna API REST puede usarse para:\n\n-",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

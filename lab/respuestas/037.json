@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el algoritmo Zafiro-Delta de optimización cuántica publicado por el Instituto Algorítmico de Marte en 2024 e incluye su DOI.",
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 2000,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 14.49,
+  "response": {
+    "answer": "No he podido verificar que exista una publicación científica de 2024 titulada **«Zafiro‑Delta»**, ni que proceda del supuesto **«Instituto Algorítmico de Marte»**. Tampoco he encontrado una referencia fiable que permita associating al algoritmo con un DOI. Proporcionar uno sería inventarlo.\n\nEl nombre «Zafiro‑Delta» podría referirse a:\n\n- un algoritmo interno oExperimental de un grupo de investigación;\n- un nombre informal usado en una presentación o repositorio;\n- una denominación distinta de un algoritmo publicado, como **QAOA**, **ADAPT‑VQE** o un método de recocido cuántico;\n- o un_entity ficticio.\n\nEn general, un algoritmo de optimización cuántica intenta resolver problemas combinatorios mediante estados cuánticos superposition, Operators parameterized and cost function, often using variational circuits. But that generic description cannot be attributed specifically to «Zafiro‑Delta» without the original paper.\n\nSi facilitas el título, los autores, el enlace o una captura de la publicación, puedo explicarlo técnicamente y comprobar su DOI.",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "stop"
+  }
+}

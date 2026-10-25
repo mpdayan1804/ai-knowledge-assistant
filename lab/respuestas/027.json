@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica qué es FastAPI, presenta tres ventajas reales y escribe un ejemplo sencillo de endpoint.",
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 400,
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "status": 200,
+  "segundos": 10.16,
+  "response": {
+    "answer": "\n\n¡Claro! Te explico FastAPI de forma sencilla.\n\n### ¿Qué es FastAPI?\n\nFastAPI es un **marco web moderno y de alto rendimiento** para construir APIs (Interfaz de Programación de Aplicaciones) con Python. Es como un \"puente\" que permite que diferentes programas se comuniquen entre ellos (por ejemplo, una app móvil y una base de datos) de forma rápida y segura.\n\nPiensa en él como un constructor de \"puentes digitales\" que son:\n- **Rápidos**: Es uno de los marcos más rápidos de Python, casi al nivel de Node.js y Go.\n- **Fácil de usar**: Su sintaxis es clara y sencilla, lo que reduce la cantidad de código que necesitas escribir.\n- **Moderno**: Aprovecha características recientes de Python, como el tipado estático (type hints).\n\n---\n\n### Tres ventajas reales de FastAPI\n\n1. **Documentación automática increíble**: Al crear endpoints, Fast",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "finish_reason": "length"
+  }
+}

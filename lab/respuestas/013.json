@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 0.5,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.66,
+  "response": {
+    "answer": "La **Inteligencia Artificial (IA)** es una forma de hacer que un programa **aprenda patrones a partir de datos** y luego use esos patrones para hacer predicciones o decisiones.\n\n### Analogía: aprender a preparar platos\n\nImagina que un programa de IA es como un **cocinero aprendiz**:\n\n- Un programa tradicional sigue una receta exacta:  \n  “Si el usuario escribe ‘gato’, muestra la foto de un gato”.\n- Un cocinero aprendiz observa muchos platos, ingredientes y resultados. Con el tiempo, nota patrones y puede decir:  \n  “Este组合 de ingredientes probablemente sabe bien» o «esta imagen parece contener un perro».\n\nEn términos de software:\n\n1. **Le damos ejemplos:** millones de imágenes etiquetadas como «gato» o «perro».\n2. **La IA analiza los datos",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el algoritmo Zafiro-Delta de optimización cuántica publicado por el Instituto Algorítmico de Marte en 2024 e incluye su DOI.",
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 400,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 11.04,
+  "response": {
+    "answer": "",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}
