@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 0.5,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.07,
+  "response": {
+    "answer": "## ¿Qué es la inteligencia artificial?\n\nPiensa en la IA como **un software que aprende patrones a partir de ejemplos**, en lugar de seguir únicamente reglas escritas manualmente.\n\n### Analogía: aprender a detectar spam\n\nUn programa tradicional funciona con reglas explícitas:\n\n```text\nSi el correo contiene \"gana dinero\" -> es spam\n```\n\nEl programa no “aprende”; solo obedece la receta que escribiste.\n\nUn sistema de IA, en cambio, recibe muchos ejemplos:\n\n- Correos marcados como **spam**\n- Correos marcados como **no spam**\n\nCon ellos encuentra patrones: palabras, enlaces, remitentes, frases y posibles interacciones",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

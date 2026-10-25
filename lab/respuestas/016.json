@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.74,
+  "response": {
+    "answer": "## ¿Qué es la inteligencia artificial?\n\nLa **IA** es un tipo de software capaz de reconocer patrones y tomar decisiones a partir de datos, en lugar de seguir únicamente reglas escritas por una persona.\n\n### Analogía: un programador junior\n\nImagina que quieres crear un programa que detecte si un correo es spam:\n\n- **Programación tradicional:** escribes reglas explícitas, por ejemplo:  \n  “Si el mensaje contiene la palabra ‘gratis’, clasifícalo como spam”.\n- **IA:** le muestras miles de correos marcados como **spam** o **no spam**. El programa analiza los ejemplos, encuentra patrones —palabras, enlaces, remitentes, estructura— y aprende a clasificar mensajes nuevos que nunca había visto.\n\nLa diferencia es fundamental:\n\n| Programación tradicional | IA |\n|---|---|\n| El humano define las reglas. | El sistema aprende reglas a partir de datos. |\n| Funciona con casos conocidos. | Puede generalizar",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}

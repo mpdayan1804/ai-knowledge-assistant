@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 0.5,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.47,
+  "response": {
+    "answer": "## ¿Qué es la Inteligencia Artificial?\n\nLa **Inteligencia Artificial (IA)** es un tipo de software capaz de reconocer patrones y tomar decisiones o generar resultados a partir de **datos**, sin que cada regla tenga que estar escrita manualmente.\n\n### Analogía: un aprendiz de programador\n\nImagina que contratas a un aprendiz y le das miles de ejemplos:\n\n- Cómo se escriben correos formales.\n- Cómo se detectan errores en código.\n- Cómo se clasifican noticias.\n",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}
