@@ -1,0 +1,17 @@
+{
+  "request": {
+    "question": "Explica el concepto de IA usando una analogía comprensible para un aprendiz de software.",
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 300,
+    "model": "minimax/minimax-m3.1-flash:free"
+  },
+  "status": 200,
+  "segundos": 6.38,
+  "response": {
+    "answer": "## ¿Qué es la inteligencia artificial?\n\nPiensa en la IA como **un aprendiz que observa muchos ejemplos y aprende a reconocer patrones**:\n\n- Si le muestras miles de fotos etiquetadas como “gato” o “perro”, puede aprender a distinguirlos.\n- Si le das ejemplos de correos marcados como “spam” o “no spam”, podrá clasificar nuevos correos.\n- Si leelyn muchos textos, puede resumirlos, traducirlos o generar contenido nuevo.\n\n### La analogía\n\nImagina que una IA es como un **aprendiz de cocina**:\n\n1. **Datos:** los libros de recetas, ingredientes e instrucciones que observa.\n2. **Entrenamiento:** practica厨 muitas veces y ajusta su criterio.\n3. **Modelo:** el conocimiento queda representado en reglas o patrones internos.\n4. **Predicción o generación:** cuando recibe",
+    "provider": "openrouter",
+    "model": "minimax/minimax-m3.1-flash:free",
+    "finish_reason": "length"
+  }
+}
