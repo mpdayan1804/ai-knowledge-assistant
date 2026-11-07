@@ -1,6 +1,20 @@
 # AI Knowledge Assistant - Bootstrap API
 
+[![Tests](https://github.com/mpdayan1804/ai-knowledge-assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/mpdayan1804/ai-knowledge-assistant/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-16_tests-0A9EDC?logo=pytest&logoColor=white)
+
 Primer incremento funcional del proyecto AI Knowledge Assistant para el Módulo 0 del curso de Ingeniería de Sistemas de IA.
+
+## Lo que demuestra este proyecto
+
+- **API REST asíncrona** con FastAPI y documentación OpenAPI automática (`/docs`).
+- **Arquitectura en capas**: rutas, esquemas Pydantic y servicios separados.
+- **Validación de datos** con Pydantic v2 (errores 422 para entradas inválidas).
+- **Pruebas automatizadas**: 16 tests unitarios y de integración con pytest, ejecutados en **GitHub Actions** en cada push.
+- **Programación concurrente** con `asyncio` + HTTPX.
+- **Commits convencionales** (`feat:`, `test:`, `docs:`, `chore:`).
 
 ## Objetivo
 
@@ -27,7 +41,7 @@ Construir, probar y versionar la base técnica de una API asíncrona preparada p
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/mpdayan1804/ai-knowledge-assistant.git
 cd ai-knowledge-assistant
 ```
 
@@ -196,6 +210,8 @@ ai-knowledge-assistant/
 │   │   └── test_bootstrap_service.py
 │   └── integration/
 │       └── test_api.py
+├── .github/workflows/
+│   └── tests.yml        # CI: ejecuta pytest en GitHub Actions
 ├── .gitignore
 ├── pyproject.toml
 ├── pytest.ini
@@ -231,10 +247,8 @@ Estas funcionalidades se agregarán en módulos posteriores.
 - Commits coherentes y descriptivos
 - Sin secretos o credenciales en el repositorio
 
-## Estado del Proyecto
+## Autora
 
-✅ Completado - Módulo 0 - Primer incremento funcional
-
-## Autor
+**Dayan Lorena Mape Forero**, estudiante de Tecnología en Desarrollo y Análisis de Datos, Bogotá, Colombia. [GitHub](https://github.com/mpdayan1804)
 
 Desarrollado como proyecto del curso de Ingeniería de Sistemas de IA - Módulo 0.
