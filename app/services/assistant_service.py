@@ -1,39 +1,44 @@
-"""Lógica de aplicación: arma los mensajes system + user y delega al proveedor."""
-from app.providers.base import LLMProvider, LLMResult
- 
-SYSTEM_PROMPT = (
-    "Eres AI Knowledge Assistant, un asistente educativo para aprendices de software. "
-    "Responde en español, de forma clara y con ejemplos sencillos. "
-    "Si no conoces algo o no estás seguro, dilo explícitamente. "
-    "No inventes datos, citas, DOI ni referencias."
-)
- 
- 
+
+from app.providers.base import LLMProvider
+
+
+SYSTEM_PROMPT = """
+Eres AI Knowledge Assistant, un asistente
+educativo especializado en tecnología.
+
+Responde en español claro.
+Explica los conceptos con ejemplos sencillos.
+Si no tienes suficiente información, indícalo.
+No inventes referencias ni datos.
+""".strip()
+
+
 class AssistantService:
-    def __init__(self, provider: LLMProvider) -> None:
-        self._provider = provider
- 
-    @property
-    def provider_name(self) -> str:
-        return self._provider.name
- 
+    def __init__(self, provider: LLMProvider):
+        self.provider = provider
+
     async def ask(
         self,
         question: str,
-        *,
-        temperature: float,
-        top_p: float,
-        max_tokens: int,
-        model: str | None = None,
-    ) -> LLMResult:
+        temperature: float = 0.3,
+        top_p: float = 1.0,
+        max_tokens: int = 300,
+    ) -> str:
+
         messages = [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": question},
+            {
+                "role": "system",
+                "content": SYSTEM_PROMPT,
+            },
+            {
+                "role": "user",
+                "content": question,
+            },
         ]
-        return await self._provider.generate(
-            messages,
+
+        return await self.provider.generate(
+            messages=messages,
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens,
-            model=model,
         )
