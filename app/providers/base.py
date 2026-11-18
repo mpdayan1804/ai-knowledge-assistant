@@ -1,32 +1,27 @@
-"""Contrato (Protocol) que cualquier proveedor de LLM debe cumplir.
 
-El servicio SOLO conoce este archivo: no sabe nada de OpenRouter,
-de URLs ni de headers HTTP. Eso es el desacoplamiento.
-"""
-from dataclasses import dataclass
-from typing import Protocol
-
-
-class LLMProviderError(Exception):
-    """Error controlado del proveedor (timeout, 429, JSON sin choices...)."""
-
-
-@dataclass
-class LLMResult:
-    content: str          # texto generado por el modelo
-    model: str | None     # modelo realmente servido (si el proveedor lo informa)
-    finish_reason: str | None = None  # 'stop' (terminó) o 'length' (se cortó por max_tokens)
+from typing import Any, Protocol
 
 
 class LLMProvider(Protocol):
-    name: str
 
     async def generate(
         self,
-        messages: list[dict],
-        *,
-        temperature: float,
-        top_p: float,
-        max_tokens: int,
-        model: str | None = None,
-    ) -> LLMResult: ...
+        messages: list[dict[str, str]],
+        temperature: float = 0.3,
+        top_p: float = 1.0,
+        max_tokens: int = 300,
+    ) -> str:
+        ... # estos puntos suspensivos indican que la implementación de este método debe ser proporcionada por cualquier clase que implemente este protocolo
+
+
+class ToolCallingProvider(Protocol):
+
+    async def complete_with_tools(
+        self,
+        messages: list[dict[str, Any]],
+        tools: list[dict[str, Any]],
+        temperature: float = 0.3,
+        top_p: float = 1.0,
+        max_tokens: int = 300,
+    ) -> dict[str, Any]:
+        ...

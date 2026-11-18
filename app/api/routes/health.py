@@ -1,12 +1,17 @@
 from fastapi import APIRouter
 
-router = APIRouter()
+from app.schemas.health import HealthResponse
 
 
-@router.get("/health")
-async def health_check():
-    """
-    Health check endpoint to verify the API is running.
-    Returns HTTP 200 when the service is healthy.
-    """
-    return {"status": "healthy"}
+router = APIRouter(tags=["health"])
+
+
+@router.get(
+    "/health",
+    response_model=HealthResponse,
+)
+async def health() -> HealthResponse:
+    return HealthResponse(
+        service="ai-knowledge-assistant",
+        version="0.1.0",
+    )
