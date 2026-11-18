@@ -1,26 +1,23 @@
+
 from fastapi import FastAPI
-from app.api.routes import health, chat, info
+
+from app.api.chat import (
+    router as chat_router,
+)
+
+from app.api.agent import (
+    router as agent_router,
+)
 
 app = FastAPI(
     title="AI Knowledge Assistant",
-    description="Bootstrap API for AI Knowledge Assistant - Module 0",
-    version="0.1.0"
+    description="API educativa con integración LLM",
+    version="1.0.0",
 )
 
-# Include routers
-app.include_router(health.router)
-app.include_router(chat.router, prefix="/api/v1")
-app.include_router(info.router)
+app.include_router(chat_router)
+app.include_router(agent_router)
 
-
-
-@app.get("/")
-async def root():
-    """
-    Root endpoint with basic information.
-    """
-    return {
-        "message": "AI Knowledge Assistant - Bootstrap API",
-        "docs": "/docs",
-        "version": "0.1.0"
-    }
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
